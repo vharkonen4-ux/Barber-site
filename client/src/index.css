@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Vintage Barber Palette */
+  /* Dark Theme Default */
+  --background: 240 10% 3.9%;   /* Deep Charcoal/Black */
+  --foreground: 0 0% 98%;       /* Off-white */
+  
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+ 
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+ 
+  --primary: 35 70% 50%;        /* Gold/Bronze Accent */
+  --primary-foreground: 240 5.9% 10%;
+ 
+  --secondary: 240 3.7% 15.9%;  /* Lighter Charcoal for elements */
+  --secondary-foreground: 0 0% 98%;
+ 
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+ 
+  --accent: 35 70% 50%;         /* Gold */
+  --accent-foreground: 0 0% 98%;
+ 
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --ring: 35 70% 50%;
+ 
+  --radius: 0.5rem;
+
+  --font-serif: 'Libre Baskerville', serif;
+  --font-sans: 'Inter', sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background-image: 
+      linear-gradient(to bottom, rgba(10, 10, 12, 0.95), rgba(10, 10, 12, 0.98)),
+      url("https://www.transparenttextures.com/patterns/dark-wood.png"); /* Subtle texture */
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-bold text-primary tracking-tight;
+  }
+}
+
+@layer components {
+  .container-width {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-gold {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 font-bold uppercase tracking-wider transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .card-vintage {
+    @apply bg-card border border-primary/20 rounded-xl shadow-xl shadow-black/50 hover:border-primary/50 transition-all duration-300;
+  }
+  
+  .input-vintage {
+    @apply bg-secondary border-border focus:border-primary focus:ring-primary/20 rounded-lg transition-all;
+  }
+}
+
+/* Custom Scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background)); 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted)); 
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary)); 
+}
